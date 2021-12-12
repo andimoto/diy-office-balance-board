@@ -14,10 +14,10 @@ holderRadius = 35;
 holderHeigth = 35;
 
 screwHole = [
-[2,2],
-[2,-2],
-[-2,-2],
-[-2,2]
+[15,15],
+[15,-15],
+[-15,-15],
+[-15,15]
 ];
 
 
@@ -27,7 +27,10 @@ module ballHolder()
     #cylinder(r=35, h=35);
     #translate([0,0,ballOffset]) sphere(r=ballRadius);
 
-
+    for(hole = screwHole)
+    {
+      %translate([hole[0],hole[1],holderHeigth]) cylinder(r=2, h=30, center=true);
+    }
 
     /* Debug Cutout */
     cube([40,40,40]);
@@ -35,5 +38,5 @@ module ballHolder()
 }
 
 
-
+/* #translate([screwHole[0][0],0,holderHeigth]) cylinder(r=2, h=20, center=true); */
 ballHolder();
