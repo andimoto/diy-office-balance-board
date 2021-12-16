@@ -7,33 +7,48 @@ single parts go to end of this file
 
 $fn = 100;
 
-ballRadius = 30;
+ballRadius = 62/2;
 ballOffset = 3;
 
 holderRadius = 35;
 holderHeigth = 35;
 
-screwHole = [
-[15,15],
-[15,-15],
-[-15,-15],
-[-15,15]
+wallThickness = 3;
+
+screwRad = 2.1;
+screwHeight = 16;
+washerRad = 9/2;
+screwHeadHeight = 20;
+
+screwHoleXY = 17;
+screwHolePlacement = [
+[screwHoleXY,screwHoleXY],
+[screwHoleXY,-screwHoleXY],
+[-screwHoleXY,-screwHoleXY],
+[-screwHoleXY,screwHoleXY]
 ];
 
+
+module screwCutout()
+{
+  cylinder(r=screwRad, h=screwHeight, center=false);
+  translate([0,0,screwHeight]) cylinder(r=washerRad, h=screwHeadHeight, center=false);
+}
+/* screwCutout(); */
 
 module ballHolder()
 {
   difference() {
-    #cylinder(r=35, h=35);
-    #translate([0,0,ballOffset]) sphere(r=ballRadius);
+    cylinder(r=ballRadius+wallThickness, h=35);
+    translate([0,0,ballOffset]) sphere(r=ballRadius);
 
-    for(hole = screwHole)
+    for(hole = screwHolePlacement)
     {
-      %translate([hole[0],hole[1],holderHeigth]) cylinder(r=2, h=30, center=true);
+      translate([hole[0],hole[1],screwHeight-5]) translate([0,0,holderHeigth]) mirror([0,0,1]) screwCutout();
     }
 
     /* Debug Cutout */
-    cube([40,40,40]);
+    /* cube([40,40,40]); */
   }
 }
 
