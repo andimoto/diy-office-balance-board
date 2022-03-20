@@ -15,7 +15,10 @@ holderHeigth = 35;
 
 wallThickness = 3;
 
-screwRad = 2.1;
+cupHeight = 35;
+innerCutR = 10;
+
+screwRad = 2;
 screwHeight = 16;
 washerRad = 9/2;
 screwHeadHeight = 20;
@@ -31,16 +34,18 @@ screwHolePlacement = [
 
 module screwCutout()
 {
-  cylinder(r=screwRad, h=screwHeight, center=false);
-  translate([0,0,screwHeight]) cylinder(r=washerRad, h=screwHeadHeight, center=false);
+  cylinder(r=screwRad+0.2, h=screwHeight, center=false);
+  translate([0,0,screwHeight]) cylinder(r=washerRad+1, h=screwHeadHeight, center=false);
 }
 /* screwCutout(); */
 
 module ballHolder()
 {
   difference() {
-    cylinder(r=ballRadius+wallThickness, h=35);
+    cylinder(r=ballRadius+wallThickness, h=cupHeight);
     translate([0,0,ballOffset]) sphere(r=ballRadius);
+
+    translate([0,0,cupHeight-10]) cylinder(r=innerCutR, h=10);
 
     for(hole = screwHolePlacement)
     {
