@@ -1,5 +1,28 @@
 # DIY Office Balance Board
 
+This is a balance board for standing desks. This helps to keep moving a little bit while standing and working.
+
+The only thing needed are 3 or 5 cups. If you want to balance completely free, the 2 outer cups can be removed. For the center cups I've taken tennis balls, which are stable. The outer cups should be soft (I used softballs) to stabilize the board but still allow swinging.
+
+BOM:
+  - M4x20 screws
+  - M4 washers
+  - board (nice size is 50x30)
+  - screw inserts (use whatever you like to assemble the cups)
+  - printed cups
+
+scad File is available for customization.
+
+![https://imgur.com/a/joBbSol](https://imgur.com/a/joBbSol)
+
+![](001.jpg)
+
+![](002.jpg)
+
+![](003.jpg)
+
+![](004.jpg)
+
 
 # LICENSE
 
