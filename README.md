@@ -10,6 +10,8 @@ BOM:
   - board (nice size is 50x30)
   - screw inserts (use whatever you like to assemble the cups)
   - printed cups
+  - 3 tennis balls (depending how much cups are used on center line)
+  - 2 softballs 
 
 scad File is available for customization.
 
